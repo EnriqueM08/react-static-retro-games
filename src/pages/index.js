@@ -14,12 +14,13 @@ async function loginUser(user, pass) {
     response => 
     {
         data = (response.data.data);
+        return data;
     }
     )
     .catch(error => {
         console.error(error);
-    });
-    return await data; 
+        return "ERROR";
+    }); 
 }
 
 export default function Home(){
