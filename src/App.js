@@ -1,30 +1,29 @@
 import song from './song1.mp3';
 import './App.css';
-// import page from './iframe_window.html';
+import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Routes, Route }
+    from 'react-router-dom';
+import Home from './pages';
+import Login from './pages/login';
+import About from './pages/about';
+import Blogs from './pages/blogs';
+import SignUp from './pages/signup';
+import Contact from './pages/contact';
 
 function App() {
   return (
-    <div className="App">
-        <div className="music-player">
-            <audio id="audio-player" controls>
-                <source src={song} type="audio/mpeg"/>
-                Your browser does not support the audio element.
-            </audio>
-            <div class="song-info">
-                <h2>Song Title</h2>
-                <p>Artist Name</p>
-            </div>
-        </div>
-        <script src="script.js"></script>
-        <iframe id="frame" 
-            src={process.env.PUBLIC_URL + '/iframe_window.html'}
-            frameborder="1"
-            title='game'
-            width={"640px"}
-            height={"480px"}
-            max-width={"100%"}> 
-        </iframe> 
-    </div>
+    
+        <Router>
+            <Navbar />
+            <Routes>
+                <Route exact path='/' element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path='/about' element={<About />} />
+                <Route path='/contact' element={<Contact />} />
+                <Route path='/blogs' element={<Blogs />} />
+                <Route path='/sign-up' element={<SignUp />} />
+            </Routes>
+        </Router>
   );
 }
 
