@@ -19,7 +19,7 @@ async function loginUser(user, pass) {
     .catch(error => {
         console.error(error);
     });
-    return data; 
+    return await data; 
 }
 
 export default function Home(){
@@ -35,19 +35,6 @@ export default function Home(){
         );
         console.log(token);
     }
-
-    // useEffect(() => {
-    //     axios.get('https://kind-sand-0ef3bd710.4.azurestaticapps.net/api/server-Connect')
-    //         .then(
-    //         response => 
-    //         {
-    //             data = (response.data.data);
-    //         }
-    //         )
-    //         .catch(error => {
-    //             console.error(error);
-    //         });
-    // }, []);
 
     return (
         <div className="mainContainer">
