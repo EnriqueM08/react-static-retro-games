@@ -6,7 +6,7 @@ const Home = () => {
 
     useEffect(() => {
         console.log("BEFORE")
-        axios.get('https://retroapi.azurewebsites.net/server-Connect')
+        axios.get('https://kind-sand-0ef3bd710.4.azurestaticapps.net/api/server-Connect')
             .then(response => {
             setPosts(response.data);
         })
