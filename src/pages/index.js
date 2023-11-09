@@ -6,7 +6,7 @@ const Home = () => {
 
     useEffect(() => {
         console.log("BEFORE")
-        axios.get('https://cors-anywhere.herokuapp.com/https://retroapi.azurewebsites.net/server-Connect')
+        axios.get('https://retroapi.azurewebsites.net/server-Connect')
             .then(response => {
             setPosts(response.data);
         })
