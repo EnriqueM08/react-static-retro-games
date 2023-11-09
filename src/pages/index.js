@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, /*useState*/ } from 'react';
 import axios from 'axios';
 
 const Home = () => {
-    const [posts, setPosts] = useState([]);
+    //const [posts, setPosts] = useState([]);
 
     useEffect(() => {
         console.log("BEFORE")
@@ -10,8 +10,8 @@ const Home = () => {
             .then(
             response => 
             {
-                setPosts(response.data);
-                //console.log("posts are", posts);
+                //setPosts(response.data);
+                console.log(response.data);
             }
             )
             .catch(error => {
@@ -28,14 +28,14 @@ const Home = () => {
             <div>
                 Please login to Continue!
             </div>
-            <ul>
+            {/* <ul>
                 {posts.map((post) => (
                     <>
                         <li key={post.id}>{post.title}</li>
                         <p>{post.body}</p>
                     </>
                 ))}
-            </ul>
+            </ul> */}
         </div>
     );
 };
