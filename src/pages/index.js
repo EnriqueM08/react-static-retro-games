@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { response } from 'express';
 
 const Home = () => {
     const [posts, setPosts] = useState([]);
@@ -8,7 +7,7 @@ const Home = () => {
     useEffect(() => {
         console.log("BEFORE")
         axios.get('https://retroapi.azurewebsites.net/server-Connect')
-            .then(resoinse => {
+            .then(response => {
             setPosts(response.data);
         })
         .catch(error => {
