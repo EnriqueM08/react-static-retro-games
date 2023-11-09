@@ -11,7 +11,7 @@ const Home = () => {
             response => 
             {
                 setPosts(response.data);
-                console.log("posts are", posts);
+                //console.log("posts are", posts);
             }
             )
             .catch(error => {
