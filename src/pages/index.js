@@ -7,12 +7,16 @@ const Home = () => {
     useEffect(() => {
         console.log("BEFORE")
         axios.get('https://kind-sand-0ef3bd710.4.azurestaticapps.net/api/server-Connect')
-            .then(response => {
-            setPosts(response.data);
-        })
-        .catch(error => {
-            console.error(error);
-        });
+            .then(
+            response => 
+            {
+                setPosts(response.data);
+                console.log("posts are", posts);
+            }
+            )
+            .catch(error => {
+                console.error(error);
+            });
         console.log("RAN");
     }, []);
 
@@ -25,8 +29,11 @@ const Home = () => {
                 Please login to Continue!
             </div>
             <ul>
-                {posts.map(post => (
-                    <li key={post.username}>{post.password}</li>
+                {posts.map((post) => (
+                    <>
+                        <li key={post.id}>{post.title}</li>
+                        <p>{post.body}</p>
+                    </>
                 ))}
             </ul>
         </div>
