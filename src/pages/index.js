@@ -4,7 +4,7 @@ import axios from 'axios';
 var data;
 
 async function loginUser(user, pass) {
-    axios.get('https://kind-sand-0ef3bd710.4.azurestaticapps.net/api/login', {
+    await axios.get('https://kind-sand-0ef3bd710.4.azurestaticapps.net/api/login', {
         params: {
             username: user,
             password: pass
@@ -14,13 +14,12 @@ async function loginUser(user, pass) {
     response => 
     {
         data = (response.data.data);
-        return data;
     }
     )
     .catch(error => {
         console.error(error);
-        return "ERROR";
     }); 
+    return data;
 }
 
 export default function Home(){
