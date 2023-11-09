@@ -24,7 +24,6 @@ const Login = (props) => {
                 placeholder="Enter your email here"
                 onChange={ev => setEmail(ev.target.value)}
                 className={"inputBox"} />
-            <label className="errorLabel">{emailError}</label>
         </div>
         <br />
         <div className={"inputContainer"}>
@@ -33,7 +32,6 @@ const Login = (props) => {
                 placeholder="Enter your password here"
                 onChange={ev => setPassword(ev.target.value)}
                 className={"inputBox"} />
-            <label className="errorLabel">{passwordError}</label>
         </div>
         <br />
         <div className={"inputContainer"}>
