@@ -1,4 +1,4 @@
-import song from './song1.mp3';
+//import song from './song1.mp3';
 import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route }
