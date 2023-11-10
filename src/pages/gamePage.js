@@ -28,6 +28,7 @@ const GamePage = () => {
         toPush = 
         <div class = "column">
             <div class="card">
+                <img src={require('../images/pkmRed.jpg')} alt="Pokemon" style={{width:"100%"}}/>
                 <div key={i}>{curRow.gameName}</div>
                 <p class="platform">{curRow.gameDevice}</p>
                 <p>{curRow.developer}</p>
