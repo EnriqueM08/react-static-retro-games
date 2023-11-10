@@ -17,9 +17,16 @@ const GamePage = () => {
         return <div className="App">Loading...</div>;
     }
 
+    const rows = [];
+    for (let i = 0; i < games.data.length; i++) {
+        // note: we are adding a key prop here to allow react to uniquely identify each
+        // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
+        rows.push(<div key={i}>${games.data[i]}</div>);
+    }
+
     return (
         <div className="App">
-        <h1>{games.name}</h1>
+            <div>{rows}</div>
         </div>
     );
 };
