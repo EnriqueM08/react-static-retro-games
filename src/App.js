@@ -10,8 +10,24 @@ import Blogs from './pages/blogs';
 import SignUp from './pages/signup';
 import Contact from './pages/contact';
 
+function setToken(userToken) {
+    sessionStorage.setItem('token', JSON.stringify(userToken));
+}
+
+function getToken() {
+    const tokenString = sessionStorage.getItem('token');
+    const userToken = JSON.parse(tokenString);
+    return userToken?.token
+}
+
 function App() {
-  return (
+    const token = getToken();
+    
+    if(!token) {
+        return <Login setToken={setToken}/>
+    }
+   
+    return (
     
         <Router>
             <Navbar />

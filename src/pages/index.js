@@ -1,5 +1,6 @@
 import React, { /*useEffect,*/ useState } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 var data;
 
@@ -22,7 +23,7 @@ async function loginUser(user, pass) {
     return data;
 }
 
-export default function Home(){
+export default function Home({ setToken }){
 
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
@@ -34,6 +35,7 @@ export default function Home(){
           password
         );
         console.log(token);
+        setToken(token);
     }
 
     return (
@@ -62,4 +64,8 @@ export default function Home(){
             </form>
         </div>
     );
+};
+
+Home.propTypes = {
+    setToken: PropTypes.func.isRequired
 };
