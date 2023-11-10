@@ -10,7 +10,7 @@ const GamePlayer = (props) => {
 
     return (
         <div>
-            <iframe src = "/ifrmae_window.html"></iframe>
+            <iframe title="game" src = "/ifrmae_window.html"></iframe>
         {/* <IFrame>
                 <div style={{width:"640px",height:"480px",maxWidth:"100%"}}>
                     <div id='game'></div>
