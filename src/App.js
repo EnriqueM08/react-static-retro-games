@@ -10,6 +10,7 @@ import Blogs from './pages/blogs';
 import SignUp from './pages/signup';
 import Contact from './pages/contact';
 import useToken from './components/useToken';
+import GamePlayer from './pages/gamePlayer';
 
 function App() {
     var { token, setToken } = useToken();
@@ -28,6 +29,7 @@ function App() {
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/blogs' element={<Blogs />} />
                 <Route path='/sign-up' element={<SignUp />} />
+                <Route path="/gamePlayer" element = {<GamePlayer/>} />
             </Routes>
         </Router>
   );
