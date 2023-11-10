@@ -34,8 +34,10 @@ export default function Login({ setToken }){
           username,
           password
         );
-        if(token !== null)
+        if(token !== null){
             setToken(token, username);
+            sessionStorage.setItem('username', username);
+        }
         else
             alert("Username or Password is incorrect");
     }
