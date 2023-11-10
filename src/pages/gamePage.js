@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import './gamePage.css'; 
+import './gamePage.css';
+import {gameImage as gameImageService} from '../images/images.ts';
 
 const GamePage = () => {
     const [isLoading, setLoading] = useState(true);
@@ -23,12 +24,15 @@ const GamePage = () => {
         var curRow = games.data[i];
         // note: we are adding a key prop here to allow react to uniquely identify each
         // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
-        var toPush; 
+        var toPush;
+        const gameImage = gameImageService.GetImage(
+            `${curRow.pictureLocation}.jpg`,
+        ); 
         
         toPush = 
         <div class = "column">
             <div class="card">
-                <img src={curRow.pictureLocation} alt="Pokemon" style={{width:"100%"}}/>
+                <img src={gameImage} alt={curRow.gameName} style={{width:"100%"}}/>
                 <div key={i}>{curRow.gameName}</div>
                 <p class="platform">{curRow.gameDevice}</p>
                 <p>{curRow.developer}</p>
