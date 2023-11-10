@@ -24,37 +24,22 @@ const GamePage = () => {
         // note: we are adding a key prop here to allow react to uniquely identify each
         // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
         var toPush; 
-        if(i % 4 === 0)
-        {
-            toPush = 
-                <div class="row">
-                    <div class="column">
-                        <div class="card">
-                            <div key={i}>{curRow.gameName}</div>
-                            <p class="platform">{curRow.gameDevice}</p>
-                            <p>{curRow.developer}</p>
-                            <p><button>Play Game</button></p>
-                        </div>
-                    </div>
-                </div>;
-        }
-        else {
-            toPush = 
-            <div class = "column">
-                <div class="card">
-                    <div key={i}>{curRow.gameName}</div>
-                    <p class="platform">{curRow.gameDevice}</p>
-                    <p>{curRow.developer}</p>
-                    <p><button>Play Game</button></p>
-                </div>
+        
+        toPush = 
+        <div class = "column">
+            <div class="card">
+                <div key={i}>{curRow.gameName}</div>
+                <p class="platform">{curRow.gameDevice}</p>
+                <p>{curRow.developer}</p>
+                <p><button>Play Game</button></p>
             </div>
-        }
+        </div>
         rows.push(toPush);
     }
 
     return (
         <div className="App">
-            <div className="game-catalog">{rows}</div>
+            <div className="row">{rows}</div>
         </div>
     );
 };
