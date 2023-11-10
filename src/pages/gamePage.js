@@ -19,10 +19,10 @@ const GamePage = () => {
 
     const rows = [];
     for (let i = 0; i < games.data.length; i++) {
-        console.log(games.data);
+        var curRow = games.data[i];
         // note: we are adding a key prop here to allow react to uniquely identify each
         // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
-        rows.push(<div key={i}>${games.data.gameName[i]}</div>);
+        rows.push(<div key={i}>${curRow.gameName}</div>);
     }
 
     return (
