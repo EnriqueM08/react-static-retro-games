@@ -7,8 +7,8 @@ const Navbar = () => {
         <>
             <Nav>
                 <NavMenu>
-                    <NavLink to="/about" activeStyle>
-                        About
+                    <NavLink to="/gamePage" activeStyle>
+                        GamePage
                     </NavLink>
                     <NavLink to="/contact" activeStyle>
                         Contact Us
