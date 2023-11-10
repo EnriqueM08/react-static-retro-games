@@ -34,7 +34,7 @@ export default function Login({ setToken }){
           username,
           password
         );
-        if(token !== null){
+        if(token.length !== 0){
             setToken(token, username);
             sessionStorage.setItem('username', username);
         }
