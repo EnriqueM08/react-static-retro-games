@@ -15,12 +15,9 @@ function App() {
     var { setToken, token } = useToken();
     
     if(!token) {
-        console.log(token);
         return <Login setToken={setToken}/>
     }
-    else
-        console.log(token);
-   
+           
     return (
     
         <Router>
