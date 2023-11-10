@@ -1,15 +1,15 @@
 import React from "react";
-import { IFrame } from '../iframe'
+// import { IFrame } from '../iframe'
 
-function GamePlayer(props) {
-    const { gameName, gameDevice } = props.match.params;
+function GamePlayer() {
+    // const { gameName, gameDevice } = props.match.params; props
 
-    console.log(gameName + gameDevice);
+    // console.log(gameName + gameDevice);
     
     return (
         <div>
         <h1>TESTING</h1>
-        <IFrame>
+        {/* <IFrame>
             <div>
                 <div style={{width:"640px",height:"480px",maxWidth:"100%"}}>
                     <div id='game'></div>
@@ -22,7 +22,7 @@ function GamePlayer(props) {
                 </script>
                 <script src='https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/loader.js'></script>
             </div>
-        </IFrame>
+        </IFrame> */}
         </div>
     );
 };
