@@ -3,8 +3,8 @@ import axios from "axios";
 import './gamePage.css';
 import {gameImage as gameImageService} from '../images/images.ts';
 import { NavLink } from "../components/Navbar/NavbarElements";
-import GamePlayer from "./gamePlayer";
-import { BrowserRouter, Route } from 'react-router-dom';
+// import GamePlayer from "./gamePlayer";
+// import { BrowserRouter, Route } from 'react-router-dom';
 
 const GamePage = () => {
     const [isLoading, setLoading] = useState(true);
@@ -47,11 +47,11 @@ const GamePage = () => {
                         Go to Page 2 
                     </button>
                 </NavLink>
-                <BrowserRouter>
+                {/* <BrowserRouter>
                         <Route path="/">
                             <GamePlayer/>
                         </Route>
-                </BrowserRouter>
+                </BrowserRouter> */}
             </div>
         </div>
         rows.push(toPush);
