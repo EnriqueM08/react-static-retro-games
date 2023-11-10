@@ -1,12 +1,17 @@
 import { useParams } from "react-router-dom";
-import { IFrame } from '../iframe'
+// import { IFrame } from '../iframe'
 
 const GamePlayer = (props) => {
     const params = useParams();
 
+    const url = `/iframe_window.html?platform=${params.gamePlatform}&url=${params.fileName}`;
+
+    console.log(url);
+
     return (
         <div>
-        <IFrame>
+            <iframe src = "/ifrmae_window.html"></iframe>
+        {/* <IFrame>
                 <div style={{width:"640px",height:"480px",maxWidth:"100%"}}>
                     <div id='game'></div>
                 </div>
@@ -17,7 +22,7 @@ const GamePlayer = (props) => {
                     EJS_pathtodata = 'https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/';
                 </script>
                 <script src='https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/loader.js'></script>
-        </IFrame>
+        </IFrame> */}
         </div>
     );
 };
