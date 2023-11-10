@@ -12,9 +12,10 @@ import Contact from './pages/contact';
 import useToken from './components/useToken';
 
 function App() {
-    const {token, setToken } = useToken();
+    const { token, setToken } = useToken();
     
     if(!token) {
+        console.log(token);
         return <Login setToken={setToken}/>
     }
    
