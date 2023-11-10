@@ -20,7 +20,7 @@ async function loginUser(user, pass) {
     .catch(error => {
         console.error(error);
     }); 
-    return data;
+    return data.id;
 }
 
 export default function Login({ setToken }){
@@ -34,7 +34,7 @@ export default function Login({ setToken }){
           password
         );
         console.log(token);
-        setToken(token);
+        setToken(token, username);
     }
 
     return( 
