@@ -5,6 +5,8 @@ function GamePlayer(props) {
     const { gameName, gameDevice } = props.match.params;
     
     return (
+        <div>
+        <h1>TESTING</h1>
         <IFrame>
             <div>
                 <div style='width:640px;height:480px;max-width:100%'>
@@ -19,6 +21,7 @@ function GamePlayer(props) {
                 <script src='https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/loader.js'></script>
             </div>
         </IFrame>
+        </div>
     );
 };
  
