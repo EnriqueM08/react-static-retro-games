@@ -4,6 +4,7 @@ import { IFrame } from '../iframe'
 const GamePlayer = (props) => {
     const params = useParams();
     
+    console.log(params);
     console.log(params.gamePlatform);
     console.log(params.fileName);
 
