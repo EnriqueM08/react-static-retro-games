@@ -3,6 +3,8 @@ import { IFrame } from '../iframe'
 
 function GamePlayer(props) {
     const { gameName, gameDevice } = props.match.params;
+
+    console.log(gameName + gameDevice);
     
     return (
         <div>
@@ -13,8 +15,8 @@ function GamePlayer(props) {
                     <div id='game'></div>
                 </div>
                 <script type='text/javascript'> 
-                    EJS_player = '{gameName}';
-                    EJS_core = '{gameDevice}';  
+                    EJS_player = '#game';
+                    EJS_core = 'gba';  
                     EJS_gameUrl = 'pkmRed.gba';
                     EJS_pathtodata = 'https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/';
                 </script>
