@@ -34,8 +34,10 @@ export default function Login({ setToken }){
           username,
           password
         );
-        console.log(token);
-        setToken(token, username);
+        if(token !== null)
+            setToken(token, username);
+        else
+            alert("Username or Password is incorrect");
     }
 
     return( 
