@@ -30,13 +30,13 @@ export default function Login({ setToken }){
         
     const handleSubmit = async e => {
         e.preventDefault();
-        const token = await loginUser(
+        const token = await loginUser({
           username,
           password
-        );
+        });
         if(token.length !== 0){
-            setToken(token, username);
             sessionStorage.setItem('username', username);
+            setToken(token);
         }
         else
             alert("Username or Password is incorrect");
