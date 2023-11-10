@@ -40,7 +40,7 @@ const GamePage = () => {
                 <div key={i}>{curRow.gameName}</div>
                 <p class="platform">{curRow.gameDevice}</p>
                 <p>{curRow.developer}</p>
-                <NavLink to={`/gamePlayer/${curRow.gameDevice}/${curRow.fileLocation}`}>
+                <NavLink to={`/gamePlayer/${curRow.gameDevice}/${curRow.fileName}`}>
                     <button>
                         Go to Page 2 
                     </button>
