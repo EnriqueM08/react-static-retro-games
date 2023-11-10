@@ -5,21 +5,23 @@
     </head>
     <body>
         <div id = 'gameBox'>
-            <div style='width:640px;height:480px;max-width:100%'>
-                <div id='game'>
-                    <div>
-                        <div style="width: 640px; height: 480px; max-width: 100%;">
-                        </div>
-                        <script type="text/javascript">
-                            EJS_player = '#game'; 
-                            EJS_core = `gba`; 
-                            EJS_gameUrl = `pkmRed.gba`; 
-                            EJS_pathtodata = 'https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/';
-                            </script>
-                            <script src="https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/loader.js">
-                            </script>
-                    </div>
-                </div>
+            <div style="width: 640px; height: 480px; max-width: 100%;">
+                <script>
+                    var params = location.href.split('?')[1].split('&');
+                    data = {};
+                    for (x in params)
+                    {
+                        data[params[x].split('=')[0]] = params[x].split('=')[1];
+                    }
+                </script>
+                <script type="text/javascript">
+                    EJS_player = '#game'; 
+                    EJS_core = data[0]; 
+                    EJS_gameUrl = data[1] + "." + data[0]; 
+                    EJS_pathtodata = 'https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/';
+                </script>
+                <script src="https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/loader.js">
+                </script>
             </div>
         </div>
     </body>

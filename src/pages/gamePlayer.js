@@ -10,7 +10,10 @@ const GamePlayer = (props) => {
 
     return (
         <div>
-            <iframe title="game" src={process.env.PUBLIC_URL + '/iframe_window.html'}></iframe>
+            <iframe title="game" src={process.env.PUBLIC_URL + url} style={
+                {width: "640px", 
+                 height: "480px",
+                 maxWidth: "100%"}}></iframe>
         {/* <IFrame>
                 <div style={{width:"640px",height:"480px",maxWidth:"100%"}}>
                     <div id='game'></div>
