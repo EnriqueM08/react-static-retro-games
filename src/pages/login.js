@@ -1,47 +1,68 @@
 import React, { useState } from "react";
-//import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import PropTypes from 'prop-types';
 
-const Login = (props) => {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    //const [emailError, setEmailError] = useState("")
-    //const [passwordError, setPasswordError] = useState("")
-    
-    //const navigate = useNavigate();
-        
-    const onButtonClick = () => {
-        // You'll update this function later...
+var data;
+
+async function loginUser(user, pass) {
+    await axios.get('https://kind-sand-0ef3bd710.4.azurestaticapps.net/api/login', {
+        params: {
+            username: user,
+            password: pass
+        }
+    })
+    .then(
+    response => 
+    {
+        data = (response.data.data);
     }
-
-    return <div className={"mainContainer"}>
-        <div className={"titleContainer"}>
-            <div>Login</div>
-        </div>
-        <br />
-        <div className={"inputContainer"}>
-            <input
-                value={email}
-                placeholder="Enter your email here"
-                onChange={ev => setEmail(ev.target.value)}
-                className={"inputBox"} />
-        </div>
-        <br />
-        <div className={"inputContainer"}>
-            <input
-                value={password}
-                placeholder="Enter your password here"
-                onChange={ev => setPassword(ev.target.value)}
-                className={"inputBox"} />
-        </div>
-        <br />
-        <div className={"inputContainer"}>
-            <input
-                className={"inputButton"}
-                type="button"
-                onClick={onButtonClick}
-                value={"Log in"} />
-        </div>
-    </div>
+    )
+    .catch(error => {
+        console.error(error);
+    }); 
+    return data;
 }
 
-export default Login
+export default function Login({ setToken }){
+    const [username, setUserName] = useState();
+    const [password, setPassword] = useState();
+        
+    const handleSubmit = async e => {
+        e.preventDefault();
+        const token = await loginUser(
+          username,
+          password
+        );
+        console.log(token);
+        setToken(token);
+    }
+
+    return( 
+        <div className={"mainContainer"}>
+            <div className={"titleContainer"}>
+                <div>Please Login</div>
+            </div>
+            <br />
+                <form onSubmit={handleSubmit}>
+                    <div class="container">
+                        <div class="testing">
+                            <label for="uname"><b>Username: </b></label>
+                            <input type="text" placeholder="Enter Username" name="uname" required onChange={e => setUserName(e.target.value)}/>
+                        </div>
+                    <div class = "testing">
+                            <label for="psw"><b>Password  : </b></label>
+                            <input type="password" placeholder="Enter Password" name="psw" required onChange={e => setPassword(e.target.value)}/>
+                    </div>
+                    <div class = "testing">
+                        <button type="submit">Login</button>
+                        </div>
+                    </div>
+
+                </form>
+        </div>
+    );
+};
+
+Login.propTypes = {
+    setToken: PropTypes.func.isRequired
+};
