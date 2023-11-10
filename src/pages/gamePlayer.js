@@ -6,9 +6,7 @@ const GamePlayer = (props) => {
 
     return (
         <div>
-        <h1>TESTING</h1>
         <IFrame>
-            <div>
                 <div style={{width:"640px",height:"480px",maxWidth:"100%"}}>
                     <div id='game'></div>
                 </div>
@@ -19,7 +17,6 @@ const GamePlayer = (props) => {
                     EJS_pathtodata = 'https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/';
                 </script>
                 <script src='https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/loader.js'></script>
-            </div>
         </IFrame>
         </div>
     );
