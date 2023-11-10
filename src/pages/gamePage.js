@@ -26,7 +26,7 @@ const GamePage = () => {
         // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
         var toPush;
         const gameImage = gameImageService.GetImage(
-            `${curRow.pictureLocation}.jpg`,
+            `${curRow.pictureName}.jpg`,
         ); 
         
         toPush = 
