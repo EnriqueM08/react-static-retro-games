@@ -15,12 +15,13 @@ async function loginUser(user, pass) {
     response => 
     {
         data = (response.data.data);
+        console.log(data);
     }
     )
     .catch(error => {
         console.error(error);
     }); 
-    return data.id;
+    return data;
 }
 
 export default function Login({ setToken }){
