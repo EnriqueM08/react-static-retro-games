@@ -13,7 +13,6 @@ import useToken from './components/useToken';
 
 function App() {
     var { setToken, token } = useToken();
-    token = sessionStorage.getItem('token');
     
     if(!token) {
         console.log(token);
