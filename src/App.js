@@ -12,7 +12,8 @@ import Contact from './pages/contact';
 import useToken from './components/useToken';
 
 function App() {
-    const { setToken, token } = useToken();
+    var { setToken, token } = useToken();
+    token = sessionStorage.getItem('token');
     
     if(!token) {
         console.log(token);
