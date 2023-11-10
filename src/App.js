@@ -12,7 +12,7 @@ import Contact from './pages/contact';
 import useToken from './components/useToken';
 
 function App() {
-    var { setToken, token } = useToken();
+    var { token, setToken } = useToken();
     
     if(!token) {
         return <Login setToken={setToken}/>
