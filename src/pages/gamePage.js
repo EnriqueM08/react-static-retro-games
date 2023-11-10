@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import './gamePage.css';
 import {gameImage as gameImageService} from '../images/images.ts';
+import { Link } from "react-router-dom";
 
 const GamePage = () => {
     const [isLoading, setLoading] = useState(true);
@@ -39,7 +40,11 @@ const GamePage = () => {
                 <div key={i}>{curRow.gameName}</div>
                 <p class="platform">{curRow.gameDevice}</p>
                 <p>{curRow.developer}</p>
-                <p><button>Play Game</button></p>
+                <Link to={`/gamePlayer/${curRow.gameName}/${curRow.gameDevice}`}>
+                    <button>
+                        Go to Page 2 
+                    </button>
+                </Link>
             </div>
         </div>
         rows.push(toPush);
