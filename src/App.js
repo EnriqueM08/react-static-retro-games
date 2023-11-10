@@ -18,6 +18,8 @@ function App() {
         console.log(token);
         return <Login setToken={setToken}/>
     }
+    else
+        console.log(token);
    
     return (
     
