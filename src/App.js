@@ -29,7 +29,7 @@ function App() {
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/blogs' element={<Blogs />} />
                 <Route path='/sign-up' element={<SignUp />} />
-                <Route path="/gamePlayer" element = {<GamePlayer/>} />
+                <Route path="/gamePlayer/:gamePlatform/:gameUrl" element = {<GamePlayer/>} />
             </Routes>
         </Router>
   );

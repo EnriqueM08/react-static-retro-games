@@ -1,7 +1,10 @@
-import React from "react";
+import { useParams } from "react-router-dom";
 // import { IFrame } from '../iframe'
 
-function GamePlayer() {
+const GamePlayer = (props) => {
+    const params = useParams();
+
+    console.log(params);
     // const { gameName, gameDevice } = props.match.params; props
 
     // console.log(gameName + gameDevice);
