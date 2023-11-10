@@ -1,5 +1,5 @@
 import React from "react";
-import { IFrame } from './iframe'
+import { IFrame } from '../iframe'
 
 function GamePlayer(props) {
     const { gameName, gameDevice } = props.match.params;
@@ -9,7 +9,7 @@ function GamePlayer(props) {
         <h1>TESTING</h1>
         <IFrame>
             <div>
-                <div style='width:640px;height:480px;max-width:100%'>
+                <div style={{width:"640px",height:"480px",maxWidth:"100%"}}>
                     <div id='game'></div>
                 </div>
                 <script type='text/javascript'> 
