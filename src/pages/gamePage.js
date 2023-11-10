@@ -28,6 +28,9 @@ const GamePage = () => {
         const gameImage = gameImageService.GetImage(
             `${curRow.pictureName}.jpg`,
         ); 
+
+        console.log(curRow.pictureName);
+        console.log("GAME IMAGE: " + gameImage);
         
         toPush = 
         <div class = "column">
