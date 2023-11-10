@@ -42,8 +42,6 @@ const GamePage = () => {
                 <div key={i}>{curRow.gameName}</div>
                 <p class="platform">{curRow.gameDevice}</p>
                 <p>{curRow.developer}</p>
-                
-                <Route path="game-player" element={<GamePlayer />} />
                 <NavLink to={`/game-player/${curRow.gameName}/${curRow.gameDevice}`}>
                     <button>
                         Go to Page 2 
