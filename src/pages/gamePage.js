@@ -4,7 +4,7 @@ import './gamePage.css';
 import {gameImage as gameImageService} from '../images/images.ts';
 import { NavLink } from "../components/Navbar/NavbarElements";
 import GamePlayer from "./gamePlayer";
-import { Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 const GamePage = () => {
     const [isLoading, setLoading] = useState(true);
@@ -42,12 +42,18 @@ const GamePage = () => {
                 <div key={i}>{curRow.gameName}</div>
                 <p class="platform">{curRow.gameDevice}</p>
                 <p>{curRow.developer}</p>
+                
                 <Route path="game-player" element={<GamePlayer />} />
                 <NavLink to={`/game-player/${curRow.gameName}/${curRow.gameDevice}`}>
                     <button>
                         Go to Page 2 
                     </button>
                 </NavLink>
+                <BrowserRouter>
+                        <Route path="/">
+                            <GamePlayer/>
+                        </Route>
+                </BrowserRouter>
             </div>
         </div>
         rows.push(toPush);
