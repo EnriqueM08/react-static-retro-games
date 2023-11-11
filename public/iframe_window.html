@@ -13,12 +13,10 @@
                     {
                         data[params[x].split('=')[0]] = params[x].split('=')[1];
                     }
-                    console.log(data);
-                    console.log(data["platform"]);
-                    console.log("Platform: " + data.platform + "URL: " + console.url);
+                    console.log("Platform: " + data["platform"] + "URL: " + data["url"]);
                     EJS_player = '#game'; 
-                    EJS_core = data.platform; 
-                    EJS_gameUrl = data.url + "." + data.platform; 
+                    EJS_core = data["platform"]; 
+                    EJS_gameUrl = data["url"] + "." + data["platform"]; 
                     EJS_pathtodata = 'https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/';
                 </script>
                 <script src="https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/loader.js">
