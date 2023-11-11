@@ -15,9 +15,14 @@
                     }
                     console.log("Platform: " + data["platform"] + "URL: " + data["url"]);
                     EJS_player = '#game'; 
-                    EJS_core = data["platform"]; 
-                    EJS_gameUrl = data["url"] + "." + data["platform"]; 
+                    EJS_core = `${data["platform"]}`; 
+                    EJS_gameUrl = `${data["url"]} + '.' + ${data["platform"]}`; 
                     EJS_pathtodata = 'https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/';
+                    console.log(
+                        "EJS player: " + EJS_player +
+                        " EJS core: " + EJS_core +
+                        " EJS gameUrl: " + EJS_gameUrl +
+                        " EJS pathtodata: " + EJS_pathtodata);
                 </script>
                 <script src="https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/loader.js">
                 </script>
