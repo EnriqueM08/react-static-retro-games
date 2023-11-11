@@ -42,7 +42,7 @@ const GamePage = () => {
                 <p>{curRow.developer}</p>
                 <NavLink to={`/gamePlayer/${curRow.gameDevice}/${curRow.fileName}`}>
                     <button>
-                        Go to Page 2 
+                        Play Game
                     </button>
                 </NavLink>
             </div>
