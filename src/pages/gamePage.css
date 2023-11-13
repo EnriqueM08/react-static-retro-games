@@ -54,9 +54,13 @@
   }
 
   .sortToggle {
-    margin-left: 1000px;
+    margin-left: 0px;
   }
 
   .sortTitle {
-    margin-left: 950px;
+    margin-left: 600px;
+  }
+
+  .options {
+    margin-bottom: 20px;
   }

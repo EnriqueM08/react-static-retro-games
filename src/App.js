@@ -48,8 +48,8 @@ function App() {
                 <Route path='/gamePage' element={<GamePage />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/blogs' element={<Blogs />} />
-                <Route path='/sign-up' element={<SignUp />} />
-                <Route path="/gamePlayer/:gamePlatform/:fileName" element = {<GamePlayer/>} />
+                <Route path='/favorites' element={<SignUp />} />
+                <Route path="/gamePlayer/:gamePlatform/:fileName/:gameid" element = {<GamePlayer/>} />
             </Routes>
         </Router>
   );

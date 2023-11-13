@@ -8,10 +8,15 @@ const GamePage = () => {
     const [isLoading, setLoading] = useState(true);
     const [games, setGames] = useState(0);
     const [sortType, setSortType] = useState('alphabetical');
+    const [filterType, setFilterType] = useState('');
     const rows = [];
 
     useEffect(() => {
-        axios.get("https://kind-sand-0ef3bd710.4.azurestaticapps.net/api/games").then(response => {
+        axios.get("https://kind-sand-0ef3bd710.4.azurestaticapps.net/api/games", {
+            params: {
+                filter: filterType
+            }
+        }).then(response => {
             var sortedData = response.data.data.sort((a, b) => {
                 if(sortType === 'alphabetical') {
                     return a.gameName.localeCompare(b.gameName);
@@ -51,7 +56,7 @@ const GamePage = () => {
                 <div key={i}>{curRow.gameName}</div>
                 <p class="platform">{curRow.gameDevice}</p>
                 <p>{curRow.developer}</p>
-                <NavLink to={`/gamePlayer/${curRow.gameDevice}/${curRow.fileName}`}>
+                <NavLink to={`/gamePlayer/${curRow.gameDevice}/${curRow.fileName}/${curRow.gameid}`}>
                     <button>
                         Play Game
                     </button>
@@ -69,11 +74,20 @@ const GamePage = () => {
         <div className="App">
             <div className="header">
                 <h1>Game Catalog:</h1>
-                <p1 className = "sortTitle">Sort by: </p1>
-                <select onChange={(e) => setSortType(e.target.value)} className="sortToggle">
-                    <option value="alphabetical">Alphabetical</option>
-                    <option value="releaseDate">Release Date</option>
-                </select>
+                <div className="options">
+                    <p1 className = "filterTitle">Filter by Platform: </p1>
+                    <select onChange={(e) => setFilterType(e.target.value)} className="filterToggle">
+                        <option value="">All</option>
+                        <option value="gba">Game Boy Advance</option>
+                        <option value="snes">SNES</option>
+                        <option value="ds">Nintendo DS</option>
+                    </select>
+                    <p1 className = "sortTitle">Sort by: </p1>
+                    <select onChange={(e) => setSortType(e.target.value)} className="sortToggle">
+                        <option value="alphabetical">Alphabetical</option>
+                        <option value="releaseDate">Release Date</option>
+                    </select>
+                </div>
             </div>
             <div className="row">{rows}</div>
         </div>

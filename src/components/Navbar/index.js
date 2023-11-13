@@ -7,17 +7,17 @@ const Navbar = () => {
         <>
             <Nav>
                 <NavMenu>
-                    <NavLink to="/gamePage" activeStyle>
-                        GamePage
+                    <NavLink to="/" activeStyle>
+                        Home
                     </NavLink>
-                    <NavLink to="/contact" activeStyle>
-                        Contact Us
+                    <NavLink to="/gamePage" activeStyle>
+                        Game Catalog
                     </NavLink>
                     <NavLink to="/blogs" activeStyle>
                         Blogs
                     </NavLink>
-                    <NavLink to="/sign-up" activeStyle>
-                        Sign Up
+                    <NavLink to="/favorites" activeStyle>
+                        Favorites
                     </NavLink>
                 </NavMenu>
             </Nav>
