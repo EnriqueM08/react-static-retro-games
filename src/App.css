@@ -99,3 +99,71 @@
   border: 1px solid grey;
   padding-left: 8px;
 }
+
+.form {
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.label {
+  display: block;
+  font-size: larger;
+  color: black;
+  padding: 5px;
+}
+
+.input {
+  display: block;
+  text-align: left;
+  font-size: larger;
+  padding: 5px;
+  margin: 2px;
+  margin: 10px auto;
+}
+
+.btn {
+  color: white;
+  background-color: green;
+  border-radius: 5px;
+  font-size: larger;
+  display: block;
+  padding: 5px;
+  margin: 10px auto;
+}
+
+.messages {
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  display: block;
+  background-color: red;
+  color: white;
+  width: 500px;
+  height: 60px;
+  padding: 5px;
+  font-size: xx-small;
+}
+
+.success {
+  display: block;
+  background-color: green;
+  color: black;
+  width: 500px;
+  height: 60px;
+  padding: 5px;
+  font-size: xx-small;
+}
+
+.btn2 {
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  font-size: larger;
+  display: block;
+  padding: 5px;
+  margin: 10px auto;
+}

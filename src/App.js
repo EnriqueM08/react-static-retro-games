@@ -9,18 +9,38 @@ import GamePage from './pages/gamePage';
 import Blogs from './pages/blogs';
 import SignUp from './pages/signup';
 import Contact from './pages/contact';
-import useToken from './components/useToken';
+//import useToken from './components/useToken';
 import GamePlayer from './pages/gamePlayer';
+import { useState } from 'react';
+
+const hasToken = () => {
+    if(sessionStorage.getItem("token") === null)
+        return false;
+    return true;
+};
 
 function App() {
-    var { token, setToken } = useToken();
+    var [token, setToken] = useState(hasToken());
+
+    const handleToken = (valToSet) => {
+        sessionStorage.setItem("token", valToSet);
+        setToken(true);
+        console.log(token);
+    }
     
-    if(!token) {
-        return <Login setToken={setToken}/>
+    if(sessionStorage.getItem("token") === null) {
+        console.log(token);
+        return (
+        <Router>
+            <Routes>
+                <Route exact path='/' element={<Login handleToken={handleToken} />} />
+                <Route path='/sign-up' element={<SignUp />} />
+            </Routes>
+        </Router>
+        );
     }
            
     return (
-    
         <Router>
             <Navbar />
             <Routes>

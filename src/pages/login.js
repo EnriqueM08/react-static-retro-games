@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import PropTypes from 'prop-types';
+import { NavLink } from "../components/Navbar/NavbarElements";
 
 var data;
 
@@ -15,7 +15,6 @@ async function loginUser(user, pass) {
     response => 
     {
         data = (response.data.data);
-        console.log(data);
     }
     )
     .catch(error => {
@@ -24,7 +23,7 @@ async function loginUser(user, pass) {
     return data;
 }
 
-export default function Login({ setToken }){
+export default function Login({ handleToken }){
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
         
@@ -36,7 +35,7 @@ export default function Login({ setToken }){
         );
         if(token.length !== 0){
             sessionStorage.setItem('username', username);
-            setToken(token);
+            handleToken(token[0].id);
         }
         else
             alert("Username or Password is incorrect");
@@ -62,12 +61,14 @@ export default function Login({ setToken }){
                         <button type="submit">Login</button>
                         </div>
                     </div>
-
                 </form>
+                <div class = "signUp">
+                    <NavLink to={'/sign-up'}>
+                            <button>
+                                Create Account
+                            </button>
+                    </NavLink>
+                </div>
         </div>
     );
-};
-
-Login.propTypes = {
-    setToken: PropTypes.func.isRequired
 };
