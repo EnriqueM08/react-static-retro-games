@@ -171,3 +171,14 @@
 .aboutUs {
   font-size: small;
 }
+
+.logOut {
+  width: 70px;
+  height: 20px;
+  text-align: center;
+  margin-left: 800px;
+}
+
+.flexible {
+  justify-content: space-between;
+}

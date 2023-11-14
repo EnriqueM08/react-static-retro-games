@@ -1,7 +1,7 @@
 import React from "react";
 import { Nav, NavLink, NavMenu }
     from "./NavbarElements";
- 
+
 const Navbar = () => {
     return (
         <>
@@ -13,11 +13,11 @@ const Navbar = () => {
                     <NavLink to="/gamePage" activeStyle>
                         Game Catalog
                     </NavLink>
-                    <NavLink to="/blogs" activeStyle>
-                        Blogs
-                    </NavLink>
                     <NavLink to="/favorites" activeStyle>
                         Favorites
+                    </NavLink>
+                    <NavLink to ="/logout" activeStyle>
+                        Logout
                     </NavLink>
                 </NavMenu>
             </Nav>

@@ -9,9 +9,10 @@ import GamePage from './pages/gamePage';
 import Blogs from './pages/blogs';
 import SignUp from './pages/signup';
 import Contact from './pages/contact';
-//import useToken from './components/useToken';
+import Logout from './pages/logout';
 import GamePlayer from './pages/gamePlayer';
-import { useState } from 'react';
+import Favorites from './pages/favorites';
+import { useEffect, useState } from 'react';
 
 const hasToken = () => {
     if(sessionStorage.getItem("token") === null)
@@ -20,12 +21,18 @@ const hasToken = () => {
 };
 
 function App() {
+    useEffect(() => {
+        document.title = 'Retro Games Player';
+    }, []);
     var [token, setToken] = useState(hasToken());
 
     const handleToken = (valToSet) => {
         sessionStorage.setItem("token", valToSet);
         setToken(true);
-        console.log(token);
+    }
+
+    const deleteToken = () => {
+        setToken(false);
     }
     
     if(sessionStorage.getItem("token") === null) {
@@ -35,6 +42,7 @@ function App() {
             <Routes>
                 <Route exact path='/' element={<Login handleToken={handleToken} />} />
                 <Route path='/sign-up' element={<SignUp />} />
+                <Route path='/logout' element={<Logout handleToken = {deleteToken}/>}/>
             </Routes>
         </Router>
         );
@@ -42,17 +50,19 @@ function App() {
            
     return (
         <Router>
-            <Navbar />
+            <Navbar id = "nav"/>
             <Routes>
                 <Route exact path='/' element={<Home />} />
                 <Route path='/gamePage' element={<GamePage />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/blogs' element={<Blogs />} />
-                <Route path='/favorites' element={<SignUp />} />
-                <Route path="/gamePlayer/:gamePlatform/:fileName/:gameid" element = {<GamePlayer/>} />
+                <Route path='/favorites' element={<Favorites />} />
+                <Route path="/gamePlayer/:gamePlatform/:fileName/:gameid/:gameName/:developer/:genres/:dateReleased" element = {<GamePlayer/>} />
+                <Route path='/logout' element={<Logout handleToken={deleteToken} />} />
             </Routes>
         </Router>
   );
 }
 
+///gamePlayer/${curRow.gameDevice}/${curRow.fileName}/${curRow.gameid}/${curRow.gameName}/${curRow.developer}/${curRow.genres}/${curRow.dateReleased}
 export default App;
