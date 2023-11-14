@@ -119,7 +119,6 @@ const GamePage = () => {
                         <option value="">All</option>
                         <option value="gba">Game Boy Advance</option>
                         <option value="snes">SNES</option>
-                        <option value="nds">Nintendo DS</option>
                     </select>
                     <p1 className = "sortTitle">Sort by: </p1>
                     <select onChange={(e) => setSortType(e.target.value)} className="sortToggle">
