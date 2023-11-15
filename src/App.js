@@ -13,6 +13,7 @@ import Logout from './pages/logout';
 import GamePlayer from './pages/gamePlayer';
 import Favorites from './pages/favorites';
 import { useEffect, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
 const hasToken = () => {
     if(sessionStorage.getItem("token") === null)
@@ -41,7 +42,7 @@ function App() {
         <Router>
             <Routes>
                 <Route exact path='/' element={<Login handleToken={handleToken} />} />
-                <Route path='/sign-up' element={<SignUp />} />
+                <Route path='/sign-up' element={<SignUp handleToken={handleToken}/>} />
                 <Route path='/logout' element={<Logout handleToken = {deleteToken}/>}/>
             </Routes>
         </Router>
@@ -59,6 +60,7 @@ function App() {
                 <Route path='/favorites' element={<Favorites />} />
                 <Route path="/gamePlayer/:gamePlatform/:fileName/:gameid/:gameName/:developer/:genres/:dateReleased" element = {<GamePlayer/>} />
                 <Route path='/logout' element={<Logout handleToken={deleteToken} />} />
+                <Route path="*" element={<Navigate to="/" />} />
             </Routes>
         </Router>
   );

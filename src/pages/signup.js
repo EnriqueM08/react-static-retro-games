@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from "axios";
 import { NavLink } from "../components/Navbar/NavbarElements";
 
-export default function SignUp() {
+export default function SignUp(props) {
 
 	// States for registration
 	const [name, setName] = useState('');
@@ -45,16 +45,17 @@ export default function SignUp() {
                 password: `${password}`,
                 email: `${email}`
             });
-            console.log(response.data);
             if(response.data.message === "Account with that email already exists!"){
                 setErrorCode("Account with that Email Exists");
                 setError(true);
             }
             else {
                 setSubmitted(true);
+                console.log(submitted);
 			    document.getElementById("registerForm").remove();
                 sessionStorage.setItem('username', name);
                 sessionStorage.setItem('token', response.data.message);
+                props.handleToken(response.data.message);
             }
         } catch (error) {
             if (error.response) {
@@ -84,22 +85,6 @@ export default function SignUp() {
 		}
 	};
 
-	// Showing success message
-	const successMessage = () => {
-		return (
-			<div
-				className="success"
-				style={{
-					display: submitted ? '' : 'none',
-				}}>
-				<h1>User {name} successfully registered!</h1>
-                <NavLink to={'/'}>
-                    Start Playing!
-                </NavLink>
-			</div>
-		);
-	};
-
 	// Showing error message if error is true
 	const errorMessage = () => {
         return (
@@ -123,7 +108,6 @@ export default function SignUp() {
 			{/* Calling to the methods */}
 			<div className="messages">
 				{errorMessage()}
-				{successMessage()}
 			</div>
 
 			<form id = "registerForm">

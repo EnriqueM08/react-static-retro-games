@@ -23,7 +23,7 @@ async function loginUser(user, pass) {
     return data;
 }
 
-export default function Login({ handleToken }){
+export default function Login(props){
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
         
@@ -35,11 +35,15 @@ export default function Login({ handleToken }){
         );
         if(token.length !== 0){
             sessionStorage.setItem('username', username);
-            handleToken(token[0].id);
+            props.handleToken(token[0].id);
         }
         else
             alert("Username or Password is incorrect");
     }
+
+    // function handleFixer(valToSet) {
+    //     //handleToken(valToSet);
+    // }
 
     return( 
         <div className={"mainContainer"}>
@@ -63,7 +67,7 @@ export default function Login({ handleToken }){
                     </div>
                 </form>
                 <div class = "signUp">
-                    <NavLink to={'/sign-up'}>
+                    <NavLink to={{pathname:'/sign-up', handleToken: props.handleToken}}>
                             <button class = "createBtn">
                                 Create Account
                             </button>
