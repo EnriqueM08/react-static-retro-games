@@ -5,8 +5,8 @@ export default function Home(){
     return (
         <div className="mainContainer">
             <div className={"titleContainer"}>
-                <div>Welcome to RetroGames!</div>
-                <p className='aboutUs'>THIS PROJECT WAS MADE AS A SCHOOL PROJECT
+                <div class = "welcome">Welcome to RetroGames!</div>
+                <p className='aboutUs'>THIS SITE WAS MADE AS A SCHOOL PROJECT
                     PLEASE SUPPORT THE OFFICIAL RELEASES.
                 </p>
             </div>

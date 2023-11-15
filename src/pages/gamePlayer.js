@@ -9,7 +9,6 @@ async function AddToFavorites() {
             userid: sessionStorage.getItem("token"),
             gameid: sessionStorage.getItem("gameid"),
         });
-        console.log(response.data);
         if(response.data.message === "Favorite created successfully") {
             document.getElementById("remove").style.display = 'block';
             document.getElementById("add").style.display = 'none';
@@ -63,16 +62,45 @@ const GamePlayer = (props) => {
 
     sessionStorage.setItem("gameid", params.gameid);
 
+    function handleDate(date) {
+        return date.replaceAll('_', '/')
+    }
+
+    function gameInfo() {
+        return (
+            <div>
+                <h1 class = "welcome" style={{"margin-top": "50px"}}>
+                    Game Information:
+                </h1>
+                <p class = "devBy">
+                    Developed by: {params.developer}
+                </p>
+                <p class = "welcome">
+                    Genre(s): {params.genres}
+                </p>
+                <p class = "welcome">
+                    Originally Released: {handleDate(params.dateReleased)}
+                </p>
+            </div>
+        );
+    }
+
     return (
-        <div>
-            <iframe title="game" src={process.env.PUBLIC_URL + url} style={
-                {width: "640px", 
-                 height: "480px",
-                 maxWidth: "100%"}}>
-            </iframe>
+        <div class="iframe-wrapper">
             <div class = "favorites"> 
                 <button id = "add" onClick={AddToFavorites}>Add to Favorites</button>
                 <button style = {{"display":'none'}} id = "remove" onClick={RemoveFavorite}>Remove Favorite</button>
+            </div>
+            <h1 class = "welcome">
+                {params.gameName}
+            </h1>
+            <iframe class = "gameFrame" title="game" src={process.env.PUBLIC_URL + url} style={
+                {width: "640px", 
+                 height: "500px",
+                 maxWidth: "100%"}}>
+            </iframe>
+            <div class = "gameInfo">
+                {gameInfo()}
             </div>
         </div>
     );

@@ -23,6 +23,30 @@ const Favorites = () => {
         });
     });
 
+    function handleDevice(deviceName) {
+        switch(deviceName) {
+            case "gba":
+              return "Game Boy Advance";
+            case "smc":
+            case "sfc":
+              return "SNES";
+            default:
+              return "Nintendo DS";
+        }
+    }
+
+    function handleDate(dateReleased){
+        return dateReleased.replaceAll('/', '_')
+    }
+
+    if(games.length === 0) {
+        rows.push(
+            <div class = "center">
+                You do not have any favorited games!
+            </div>
+        );
+    }
+
     for (let i = 0; i < games.length; i++) {
         var curRow = games[i];
         // note: we are adding a key prop here to allow react to uniquely identify each
@@ -35,11 +59,11 @@ const Favorites = () => {
         toPush = 
         <div class = "column">
             <div class="card">
-                <img src={gameImage} alt={curRow.gameName} style={{width:"100%"}}/>
+                <img class = "image" src={gameImage} alt={curRow.gameName} style={{width:"100%"}}/>
                 <div key={i}>{curRow.gameName}</div>
-                <p class="platform">{curRow.gameDevice}</p>
-                <p>{curRow.developer}</p>
-                <NavLink to={`/gamePlayer/${curRow.gameDevice}/${curRow.fileName}/${curRow.gameid}`}>
+                <p class="platform">Platform: {handleDevice(curRow.gameDevice)}</p>
+                <p class ="release">{curRow.dateReleased}</p>
+                <NavLink to={`/gamePlayer/${curRow.gameDevice}/${curRow.fileName}/${curRow.gameid}/${curRow.gameName}/${curRow.developer}/${curRow.genres}/${handleDate(curRow.dateReleased)}`}>
                     <button>
                         Play Game
                     </button>
@@ -56,7 +80,7 @@ const Favorites = () => {
     return (
         <div className="App">
             <div className="header">
-                <h1>Game Catalog:</h1>
+                <h1 class = "favs">Favorites:</h1>
             </div>
             <div className="row">{rows}</div>
         </div>

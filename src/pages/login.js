@@ -44,27 +44,27 @@ export default function Login({ handleToken }){
     return( 
         <div className={"mainContainer"}>
             <div className={"titleContainer"}>
-                <div>Welcome, Please Login</div>
+                <div class = "welcome">Welcome, Please Login</div>
             </div>
             <br />
                 <form onSubmit={handleSubmit}>
                     <div class="container">
-                        <div class="testing">
-                            <label for="uname"><b>Username: </b></label>
+                        <div class="userInput">
+                            <label class = "welcome"for="uname"><b>Username: </b></label>
                             <input type="text" placeholder="Enter Username" name="uname" required onChange={e => setUserName(e.target.value)}/>
                         </div>
-                    <div class = "testing">
-                            <label for="psw"><b>Password  : </b></label>
+                    <div class = "passInput">
+                            <label class = "welcome" for="psw"><b>Password  : </b></label>
                             <input type="password" placeholder="Enter Password" name="psw" required onChange={e => setPassword(e.target.value)}/>
                     </div>
-                    <div class = "testing">
-                        <button type="submit">Login</button>
+                    <div class = "login">
+                        <button class = "loginBtn" type="submit">Login</button>
                         </div>
                     </div>
                 </form>
                 <div class = "signUp">
                     <NavLink to={'/sign-up'}>
-                            <button>
+                            <button class = "createBtn">
                                 Create Account
                             </button>
                     </NavLink>

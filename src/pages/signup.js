@@ -46,10 +46,16 @@ export default function SignUp() {
                 email: `${email}`
             });
             console.log(response.data);
-            setSubmitted(true);
-			document.getElementById("registerForm").remove();
-            sessionStorage.setItem('username', name);
-            sessionStorage.setItem('token', response.data.message);
+            if(response.data.message === "Account with that email already exists!"){
+                setErrorCode("Account with that Email Exists");
+                setError(true);
+            }
+            else {
+                setSubmitted(true);
+			    document.getElementById("registerForm").remove();
+                sessionStorage.setItem('username', name);
+                sessionStorage.setItem('token', response.data.message);
+            }
         } catch (error) {
             if (error.response) {
                 setErrorCode("Server response error");
@@ -87,6 +93,9 @@ export default function SignUp() {
 					display: submitted ? '' : 'none',
 				}}>
 				<h1>User {name} successfully registered!</h1>
+                <NavLink to={'/'}>
+                    Start Playing!
+                </NavLink>
 			</div>
 		);
 	};
@@ -108,7 +117,7 @@ export default function SignUp() {
         
 		<div className="form">
 			<div>
-				<h1>User Registration</h1>
+				<h1 class="welcome">User Registration</h1>
 			</div>
 
 			{/* Calling to the methods */}
@@ -137,12 +146,12 @@ export default function SignUp() {
 
 				<button onClick={handleSubmit} className="btn"
 						type="submit">
-					Submit
+					Sign Up
 				</button>
                 <div class = "signUp">
                     <NavLink to={'/'}>
                             <button className='btn2'>
-                                Go Back
+                                Cancel
                             </button>
                     </NavLink>
                 </div>

@@ -29,8 +29,6 @@ const GamePage = () => {
                     const bDateArray = b.dateReleased.split("/");
                     updateMonth = parseInt(bDateArray[0]) - 1;
                     var bDate = new Date(bDateArray[2],updateMonth,bDateArray[1]);
-                    console.log(aDate + " " + bDate);
-                    console.log(aDate < bDate);
                     if(aDate < bDate) {
                         return -1;
                     } else if(bDate > aDate) {
@@ -51,7 +49,6 @@ const GamePage = () => {
             }
             setGames(sortedData);
             setLoading(false);
-            console.log("RAN Effect");
         });
     },[sortType, filterType, searchInput]);
 
@@ -86,7 +83,7 @@ const GamePage = () => {
             <div class="card">
                 <img class = "image" src={gameImage} alt={curRow.gameName} style={{width:"100%"}}/>
                 <p class="platform">Platform: {handleDevice(curRow.gameDevice)}</p>
-                <p>Release Date: {curRow.dateReleased}</p>
+                <p class="release">Release Date: {curRow.dateReleased}</p>
                 <NavLink to={`/gamePlayer/${curRow.gameDevice}/${curRow.fileName}/${curRow.gameid}/${curRow.gameName}/${curRow.developer}/${curRow.genres}/${handleDate(curRow.dateReleased)}`}>
                     <button>
                         Play Game
@@ -109,7 +106,7 @@ const GamePage = () => {
     return (
         <div className="App">
             <div className="header">
-                <h1>Game Catalog:</h1>
+                <h1 class = "welcome">Game Catalog:</h1>
                 <div className="searchBar">
                 <input type="search" placeholder="Search Game by Name" onChange={handleChange} value={searchInput} />
                 </div>
@@ -127,7 +124,9 @@ const GamePage = () => {
                     </select>
                 </div>
             </div>
-            <div className="row">{rows}</div>
+            <div class = "gamesContainer">
+                <div className="row">{rows}</div>
+            </div>
         </div>
     );
 };
