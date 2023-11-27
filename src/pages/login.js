@@ -15,6 +15,7 @@ async function loginUser(user, pass) {
     response => 
     {
         data = (response.data.data);
+        console.log(response);
     }
     )
     .catch(error => {
