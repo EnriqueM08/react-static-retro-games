@@ -20,6 +20,7 @@ async function loginUser(user, pass) {
     .catch(error => {
         console.error(error);
     }); 
+    console.log(data);
     return data;
 }
 
