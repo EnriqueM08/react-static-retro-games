@@ -112,7 +112,7 @@ export default function SignUp(props) {
 
 			<form id = "registerForm">
 				{/* Labels and inputs for form data */}
-				<label className="label">Name</label>
+				<label className="label">Username</label>
 				<input onChange={handleName} className="input"
 					value={name} type="text" />
 
