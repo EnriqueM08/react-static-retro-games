@@ -58,7 +58,7 @@ export default function SignUp(props) {
 				let id = temp[0];
 				let idNum = id.id;
 				console.log(JSON.stringify(idNum));
-                sessionStorage.setItem('token', idNum);
+                sessionStorage.setItem('token', JSON.stringify(idNum));
                 props.handleToken(response.data.message);
             }
         } catch (error) {
