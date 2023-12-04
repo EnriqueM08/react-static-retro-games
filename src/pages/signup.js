@@ -59,7 +59,8 @@ export default function SignUp(props) {
 				let idNum = id.id;
 				let newIdNum = idNum.toString();
 				console.log(newIdNum);
-                sessionStorage.setItem('token', idNum.toString());
+				console.log(typeof(newIdNum));
+                sessionStorage.setItem('token', newIdNum);
                 props.handleToken(response.data.message);
             }
         } catch (error) {
