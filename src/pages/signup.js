@@ -54,7 +54,7 @@ export default function SignUp(props) {
                 console.log(submitted);
 			    document.getElementById("registerForm").remove();
                 sessionStorage.setItem('username', name);
-                sessionStorage.setItem('token', response.data.message.id[0]);
+                sessionStorage.setItem('token', response.data.message.id);
 				console.log(response.data.message.id);
                 props.handleToken(response.data.message);
             }
