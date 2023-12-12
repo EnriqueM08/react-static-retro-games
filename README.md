@@ -1,6 +1,6 @@
 # This project is a retro games site that allows users to play retro SNES and Gameboy Advance games from a catalog of selected games.
 Users can create an account, log in to the site, and play games as well as add games to their favorites for easy access in the future.
-The games are playable thanks to the EmulatorJS project created by [@ethanaobrien](https://https://github.com/ethanaobrien) and [@allancoding](https://github.com/allancoding).
+The games are playable thanks to the EmulatorJS project created by [@ethanaobrien](https://github.com/ethanaobrien) and [@allancoding](https://github.com/allancoding).
 EmulatorJS can be found at [EmulatorJS](https://github.com/EmulatorJS/EmulatorJS)
 
 # Getting Started with Create React App
