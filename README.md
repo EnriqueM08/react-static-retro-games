@@ -68,3 +68,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# This project is a retro games site that allows users to play retro SNES and Gameboy Advance games from a catalog of selected games.
+Users can create an account, log in to the site, and play games as well as add games to their favorites for easy access in the future.
+The games are playable thanks to the EmulatorJS project created by @ethanaobrien and @allancoding.
+EmulatorJS can be found at [https://github.com/EmulatorJS/EmulatorJS](https://github.com/EmulatorJS/EmulatorJS)
